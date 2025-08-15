@@ -1,0 +1,1 @@
+# Terraform_AWS_ECS_ECR_Template_NodeJS
