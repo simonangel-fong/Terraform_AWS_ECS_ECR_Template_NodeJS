@@ -1,4 +1,18 @@
-# Terraform_AWS_ECS_ECR_Template_NodeJS
+# Terraform AWS ECS & ECR Template - NodeJS
+
+A Terraform template of deploying node.js app using ECS & ECR.
+
+- [Terraform AWS ECS \& ECR Template - NodeJS](#terraform-aws-ecs--ecr-template---nodejs)
+  - [Diagram](#diagram)
+  - [Steps](#steps)
+
+---
+
+## Diagram
+
+![pic](./pic/diagram.gif)
+
+---
 
 ## Steps
 
@@ -11,7 +25,7 @@ cd terraform
 terraform init
 
 # create ECR and get ECR url
-terraform apply -target=aws_ecr_repository.ecr_repo_myapp
+terraform apply -target=aws_ecr_repository.ecr_repo
 ```
 
 ---
@@ -32,10 +46,16 @@ docker images
 aws ecr get-login-password --region aws_region | docker login --username AWS --password-stdin aws_account_id.dkr.ecr.aws_region.amazonaws.com
 
 # push image to ecr
-docker push ecr_url:1.0
+docker push ecr_repo_url:1.0
 # confirm
-aws ecr list-images --repository-name ecr_repo_myapp
+aws ecr list-images --repository-name ecr_repo
 ```
 
 ---
 
+4. Create infrastractures using ECS
+
+5. Confirm
+   - Visiting ALB DNS Url.
+
+![pic](./pic/pic01.png)

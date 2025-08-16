@@ -1,1 +1,1 @@
-aws_region = ""
+aws_region = "" # ecs AMI 
